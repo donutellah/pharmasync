@@ -3,7 +3,7 @@ import PharmacistSidebar from '../components/PharmacistSidebar';
 import { formatPesoReal as fmtPeso } from '../utils/format';
 import { Search, Bell, TrendingUp, AlertTriangle, DollarSign, ShoppingCart, Heart, AlertCircle, Calendar, Star } from 'lucide-react';
 
-const API_BASE = '';
+import API_BASE from '../utils/api';
 
 function authHeaders() {
   const token = localStorage.getItem('token');

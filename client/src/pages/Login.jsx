@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import heroImg from '../assets/hero.png';
 
-const API_BASE = '';
+import API_BASE from '../utils/api';
 
 export default function Login() {
   const [selectedRole, setSelectedRole] = useState('admin');

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PharmacistSidebar from '../components/PharmacistSidebar';
 import { formatPesoReal } from '../utils/format';
 
-const API_BASE = '';
+import API_BASE from '../utils/api';
 function authHeaders() {
   const token = localStorage.getItem('token');
   return { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` };

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
 import { formatPesoReal } from '../utils/format';
 
-const API_BASE = '';
+import API_BASE from '../utils/api';
 
 function authHeaders() {
   const token = localStorage.getItem('token');

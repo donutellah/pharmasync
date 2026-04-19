@@ -6,7 +6,7 @@ import {
   Search, Bell, Settings, HelpCircle, Star, AlertCircle, Calendar
 } from 'lucide-react';
 
-const API_BASE = '';
+import API_BASE from '../utils/api';
 
 function authHeaders() {
   const token = localStorage.getItem('token');
