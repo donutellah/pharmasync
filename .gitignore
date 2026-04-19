@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Environment variables (keep secrets safe)
+.env
+
+# SQLite database files (will be recreated on server)
+pharmasync.db
+pharmasync.db-shm
+pharmasync.db-wal
+database/pharmasync.db
+
+# Frontend build output
+client/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
