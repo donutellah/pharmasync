@@ -158,7 +158,6 @@ PharmaSync comes with a built-in AI assistant that has live access to your pharm
 
 The assistant understands your inventory, sales, and supplier records — making it a powerful tool for quick insights without leaving the dashboard.
 
-> To enable the AI assistant, make sure `AI_API_KEY` is set in your `.env` file.
 
 ---
 
