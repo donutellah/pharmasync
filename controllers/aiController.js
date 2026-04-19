@@ -1,8 +1,8 @@
-const Anthropic = require('@anthropic-ai/sdk');
+const Groq = require('groq-sdk');
 const db = require('../database/db');
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const client = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 function getPharmacyContext() {
@@ -53,9 +53,9 @@ async function chat(req, res) {
     return res.status(400).json({ error: 'messages array is required' });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!process.env.GROQ_API_KEY) {
     return res.status(503).json({
-      error: 'AI service not configured. Please set ANTHROPIC_API_KEY in your .env file.',
+      error: 'AI service not configured. Please set GROQ_API_KEY in your .env file.',
     });
   }
 
@@ -85,18 +85,20 @@ Guidelines:
 - Never fabricate product names or data not present in the live data above`;
 
   try {
-    const response = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+    const response = await client.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
       max_tokens: 1024,
-      system: systemPrompt,
-      messages: messages.map(m => ({
-        role: m.role,
-        content: m.content,
-      })),
+      messages: [
+        { role: 'system', content: systemPrompt },
+        ...messages.map(m => ({
+          role: m.role,
+          content: m.content,
+        })),
+      ],
     });
 
     return res.json({
-      reply: response.content[0].text,
+      reply: response.choices[0].message.content,
       usage: response.usage,
     });
   } catch (err) {
